@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Accordion</title>
+    <script src="https://kit.fontawesome.com/1165876da6.js" crossorigin="anonymous"></script>
+</head>
+
+<style>
+    *{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    h1{
+        text-align: center;
+    }
+    .faq {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.question {
+    background-color: #f0f0f0;
+    padding: 14px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.answer {
+    display: none;
+    padding: 14px;
+    border: 1px solid #ccc;
+}
+span{
+    float: right;
+}
+
+.fa-caret-down{
+    font-size: 20px;
+}
+
+</style>
+<body>
+    <h1>FAQ</h1>
+    <div class="faq">
+        <div class="question">What is acccordian ? <span><i class="fa-solid fa-caret-down"></i></span></div>
+        <div class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, sapiente. Delectus quaerat perferendis quae quasi.</div>
+
+        <div class="question">What is faq ? <span><i class="fa-solid fa-caret-down"></i></span></div>
+        <div class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, sapiente. Delectus quaerat perferendis quae quasi.</div>
+
+        <div class="question">About company policy <span><i class="fa-solid fa-caret-down"></i></span></div>
+        <div class="answer">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel magnam ab illo, possimus accusantium atque voluptatum.</div>
+
+        <!-- Add more questions and answers as needed -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+    // Toggle answer visibility on clicking a question
+    $('.question').click(function() {
+        $(this).next('.answer').slideToggle();
+    });
+});
+
+    </script>
+</body>
+</html>
