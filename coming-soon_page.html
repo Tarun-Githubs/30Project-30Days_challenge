@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="./Css/coming-soon_page.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Coming Soon...</h1>
+        <p>Our website is under construction. We'll be here soon with exciting updates!</p>
+        <div id="countdown">
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        const countDownDate = new Date("Sep 29, 2023 00:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const x = setInterval(function () {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = `<span>${days}</span> days`;
+            document.getElementById("hours").innerHTML = `<span>${hours}</span> hours`;
+            document.getElementById("minutes").innerHTML = `<span>${minutes}</span> minutes`;
+            document.getElementById("seconds").innerHTML = `<span>${seconds}</span> seconds`;
+
+            // If the countdown is over, display a message
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>
