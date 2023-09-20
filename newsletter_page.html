@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        text-align: center;
+        background: #D7485F;
+        padding: 40px;
+        border-radius: 5px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color:white;
+    }
+
+    input{
+        padding: 10px;
+        width: 250px;
+        margin-right: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    input:focus{
+        outline: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        background: #fffb00;
+        color: #D7485F;
+        border: none;
+        cursor: pointer;
+;
+    }
+
+    #responseMessage {
+        margin-top: 20px;
+        font-weight: normal;
+        color: white;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Newsletter</h1>
+        <form id="newsletterForm">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#newsletterForm').submit(function (e) {
+                e.preventDefault();
+                let email = $('#email').val();
+
+                $('#responseMessage').text('Thank you for subscribing!');
+                $('#email').val(''); // Clear the email input
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
