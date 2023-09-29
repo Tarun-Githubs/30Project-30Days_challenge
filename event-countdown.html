@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" integrity="sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Event Countdown</title>
+</head>
+<style>
+    body {
+        background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+        background-size: 100%;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        position: absolute;
+        transform: translate(-50%,-50%);
+        top: 50%;
+        left: 50%;
+    }
+
+    .music-event{
+        font-size: 90px;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+    }
+
+    .fa-headphones{
+        font-size: 60px;
+        color: #F75AAF;
+    }
+
+    .countdown {
+        margin-top: 10px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 25px;
+        color: white;
+    }
+
+    #countdown-timer {
+        display: flex;
+        justify-content: center;
+    }
+
+    .time {
+        font-size: 50px;
+        margin: 10px 20px;
+        background: rgb(214, 42, 8);
+        background: #F75AAF;
+        padding: 15px;
+        border-radius: 20px;
+    }
+
+    .stay-tuned{
+        text-align: center;
+        color: white;
+        font-size: 25px;
+        margin-top: 20px;
+    }
+
+</style>
+
+<body>
+    <div class="music-event">Music Event</div>
+    <div class="countdown">
+        <i class="fa-solid fa-headphones"></i>
+        <h1>Event Countdown</h1>
+        <div id="countdown-timer">
+            <div class="time" id="days">00</div>
+            <div class="time" id="hours">00</div>
+            <div class="time" id="minutes">00</div>
+            <div class="time" id="seconds">00</div>
+        </div>
+    </div>
+    <div class="stay-tuned">Stay Tuned!</div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+  // Set the event date (YYYY-MM-DDTHH:MM:SS)
+  const eventDate = new Date('2023-12-31T00:00:00').getTime();
+
+  // Update the countdown every second
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(distance / (1000 * 2500 * 50 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    $('#days').text(days < 10 ? `0${days}` : days);
+    $('#hours').text(hours < 10 ? `0${hours}` : hours);
+    $('#minutes').text(minutes < 10 ? `0${minutes}` : minutes);
+    $('#seconds').text(seconds < 10 ? `0${seconds}` : seconds);
+
+    // If the countdown is over, display a message
+    if (distance < 0) {
+      clearInterval(x);
+      $('#countdown-timer').html('<p>The event has passed!</p>');
+    }
+  }, 1000);
+});
+
+    </script>
+</body>
+
+</html>
