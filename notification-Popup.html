@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Notification Popup</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#showPopup{
+    padding: 7.5px 15px;
+    cursor: pointer;
+    background: #ff0339;
+    color: white;
+    border: none;
+    
+}
+
+#notificationPopup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+  animation: fadeIn 0.5s forwards;
+}
+
+.closeBtn {
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popupContent {
+  padding: 5px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+</style>
+<body>
+  <button id="showPopup">Show Notification</button>
+
+  <div id="notificationPopup">
+    <span class="closeBtn">&times;</span>
+    <div class="popupContent">
+      <h2>New Notification</h2>
+      <p>Your notification message goes here.</p>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+  $('#showPopup').click(function() {
+    $('#notificationPopup').show();
+  });
+
+  $('.closeBtn').click(function() {
+    $('#notificationPopup').hide();
+  });
+});
+
+  </script>
+</body>
+</html>
