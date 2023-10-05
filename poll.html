@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Poll</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 50px;
+}
+
+.poll-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.options li {
+  list-style-type: none;
+  margin-bottom: 10px;
+}
+
+#submit-button {
+  padding: 5px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #00b3ff;
+  border: 1px solid #00b3ff;
+  color: white;
+}
+
+#result-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+#result-message {
+  font-size: 18px;
+}
+
+</style>
+<body>
+  <div class="poll-container">
+    <div class="question">What is your favorite programming language?</div>
+    <ul class="options">
+      <li><input type="radio" name="poll-option" value="JavaScript">JavaScript</li>
+      <li><input type="radio" name="poll-option" value="Python">Python</li>
+      <li><input type="radio" name="poll-option" value="Java">Java</li>
+      <li><input type="radio" name="poll-option" value="C++">C++</li>
+    </ul>
+    <button id="submit-button">Submit</button>
+  </div>
+
+  <div id="result-container" class="hidden">
+    <div id="result-message"></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+  $('#submit-button').click(function() {
+    const selectedOption = $('input[name=poll-option]:checked').val();
+    if (selectedOption) {
+      $('#poll-container').hide();
+      $('#result-message').text(`You voted for : ${selectedOption}`);
+      $('#result-container').removeClass('hidden');
+    } else {
+      alert('Please select an option before submitting.');
+    }
+  });
+});
+
+  </script>
+</body>
+</html>
