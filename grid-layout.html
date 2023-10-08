@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Grid Layout</title>
+</head>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+h1{
+     text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns with equal width */
+  grid-gap: 10px; /* Gap between grid items */
+}
+
+.item {
+  background-color: #f0f0f0;
+  padding: 20px;
+  text-align: center;
+}
+
+.item:nth-child(odd){
+    background: #039dc4;
+}
+.item:nth-child(even){
+    background: #d3f802;
+}
+
+</style>
+<body>
+ <h1>CSS Grid Layout</h1>
+  <div class="grid-container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+  </div>
+</body>
+</html>
