@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transition</title>
+</head>
+<style>
+    .container{
+        position: absolute;
+        transform: translate(-50%,-50%);
+        left: 50%;
+        top: 50%;
+    }
+
+    .fade-in {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .fade-in:hover {
+        opacity: 1;
+    }
+
+    .scale {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        transform: scale(1);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .scale:hover {
+        transform: scale(1.2);
+    }
+
+    .rotate {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        transform: rotate(0deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .rotate:hover {
+        transform: rotate(45deg);
+    }
+
+    .color {
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+        transition: background-color 0.5s ease-in-out;
+    }
+
+    .color:hover {
+        background-color: orange;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="fade-in"></div><br><br>
+        <div class="scale"></div><br><br>
+        <div class="rotate"></div><br><br>
+        <div class="color"></div>
+
+    </div>
+</body>
+
+</html>
